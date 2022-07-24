@@ -1,0 +1,181 @@
+.profile{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.profile h2{
+    margin-bottom: 20px;
+    color: whitesmoke;
+    font-size: 2rem;
+}
+
+/* .contacts--table--wrp table{
+    border: 1px solid orange;
+    padding: 10px;
+} */
+
+.contacts--table--wrp{
+    height: 400px;
+    overflow-y: scroll;
+}
+
+.contacts--table--wrp table td{
+    color: rgb(194, 192, 192);
+}
+
+.table--header th{
+    background-color: #380144;
+    color: whitesmoke;
+    padding: 10px 20px;
+}
+
+.table--data--rows td{
+    border-bottom: 1px solid rgb(97, 96, 96);
+    padding: 10px 20px;
+}
+
+.table--btn--edit{
+    background-color: orange;
+    color: black;
+    padding: 7px 40px;
+    cursor: pointer;
+}
+
+.table--btn--del{
+    background-color: red;
+    color: black;
+    padding: 7px 40px;
+    cursor: pointer;
+}
+
+.btn--add--new{
+    background-color: green;
+    color: black;
+    padding: 7px 40px;
+    margin-top: 40px;
+}
+
+.edit--contact--modal{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.63);
+    backdrop-filter: blur(1rem);
+    display: grid;
+    place-items: center;
+}
+
+.edit--contact--form{
+    height: 200px;
+    background-color: #380144;
+    width: 50%;
+    padding: 10px;
+}
+
+.edit--contact--form--top{
+    display: flex;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.edit--label{
+    width: 90%;
+    text-align: center;
+    font-size: 1.5rem!important;
+}
+
+.close--modal{
+    width: 10%;
+    font-size: 1.5rem!important;
+}
+
+.edit--contact--form--cnt{
+    padding: 10px;
+    border: 1px solid orange;
+    background-color: #280131;
+    border-radius: 5px;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.edit--contact--form--cnt input{
+    width: 70%;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    color: whitesmoke;
+}
+
+.edit--contact--form--cnt button{
+    width: 30%;
+    padding: 10px 20px;
+    background-color: green;
+    color: whitesmoke;
+}
+
+
+/* Add modal section */
+
+.add--contact--modal{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.63);
+    backdrop-filter: blur(1rem);
+    display: grid;
+    place-items: center;
+}
+
+.add--contact--form{
+    background-color: #380144;
+    width: 50%;
+    padding: 10px;
+}
+
+.add--contact--form--top{
+    display: flex;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.add--label{
+    width: 90%;
+    text-align: center;
+    font-size: 1.5rem!important;
+}
+
+.close--modal{
+    width: 10%;
+    font-size: 1.5rem!important;
+}
+
+.add--contact--form--cnt{
+    padding: 10px;
+    border: 1px solid orange;
+    background-color: #280131;
+    border-radius: 5px;
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+
+.add--contact--form--cnt input{
+    width: 100%;
+    padding: 5px 20px;
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    color: whitesmoke;
+}
+
+.btn--add--modal{
+    width: 180px;
+    padding: 10px 20px;
+    background-color: green;
+    color: whitesmoke;
+}
