@@ -23,6 +23,15 @@
     border: 1px solid orange;
 }
 
+.signin--card form{
+    display: flex;
+    flex-direction: column;
+    background-color: #380144;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 5px;
+}
+
 .signin--card input{
     background-color: #4a025a;
     outline: none;
