@@ -20,10 +20,10 @@
 
 .contacts--table--wrp {
   height: 400px;
-  width: 100%;
-  max-width: 700px;
+  /* width: 100%;
+  max-width: 700px; */
   overflow-y: scroll;
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
 }
 
 .contacts--table--wrp table td {
