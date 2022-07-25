@@ -42,7 +42,68 @@ function Profile() {
     setEmail("");
     setHouseAddress("");
     setPhone("");
-    setOwnerEmail("");
+  };
+
+  const closeModalAdd = () => {
+    setModalShowAdd(false);
+    setId("");
+    setName("");
+    setEmail("");
+    setHouseAddress("");
+    setPhone("");
+  };
+
+  const addContact = async (e) => {
+    e.preventDefault();
+
+    try {
+      setLoading(true);
+      const { data } = await axios.post(`/create-contact/`, {
+        name,
+        email,
+        phone,
+        houseaddress,
+        owneremail,
+      });
+      if (data.error) {
+        toast.error(data.error, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        setLoading(false);
+      } else {
+        toast.success("Contact successfully created", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        if (state && state.token) {
+          getAllUserContacts(state.user, state.token);
+        }
+
+        setLoading(false);
+      }
+    } catch (err) {
+      toast.error(err, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      setLoading(false);
+    }
   };
 
   const updateDetails = async (e) => {
@@ -183,6 +244,7 @@ function Profile() {
   useEffect(() => {
     if (state && state.token) {
       getAllUserContacts(state.user, state.token);
+      setOwnerEmail(state.user);
     }
   }, [state && state.user]);
 
@@ -349,26 +411,57 @@ function Profile() {
               <h2 className="close--modal">
                 <i
                   className="bi bi-x-lg"
-                  onClick={() => setModalShowAdd(false)}
+                  onClick={() => closeModalAdd()}
                   style={{ cursor: "pointer" }}
                 ></i>
               </h2>
             </div>
-            <div className="add--contact--form--cnt">
-              <input type="text" placeholder="full name" />
-            </div>
-            <div className="add--contact--form--cnt">
-              <input type="email" placeholder="email address" />
-            </div>
-            <div className="add--contact--form--cnt">
-              <input type="text" placeholder="house address" />
-            </div>
-            <div className="add--contact--form--cnt">
-              <input type="tel" placeholder="phone" />
-            </div>
-            <div style={{ margin: "0 auto", width: "fit-content" }}>
-              <button className="btn--add--modal">Submit</button>
-            </div>
+            <form onSubmit={addContact}>
+              <div className="add--contact--form--cnt">
+                <input
+                  type="text"
+                  placeholder="full name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </div>
+              <div className="add--contact--form--cnt">
+                <input
+                  type="email"
+                  placeholder="email address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+              <div className="add--contact--form--cnt">
+                <input
+                  type="text"
+                  placeholder="house address"
+                  value={houseaddress}
+                  onChange={(e) => setHouseAddress(e.target.value)}
+                />
+              </div>
+              <div className="add--contact--form--cnt">
+                <input
+                  type="tel"
+                  placeholder="phone"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
+              </div>
+              <div style={{ margin: "0 auto", width: "fit-content" }}>
+                <button
+                  className="btn--add--modal"
+                  disabled={loading}
+                  style={{
+                    backgroundColor: loading && "#001c00",
+                    cursor: loading && "not-allowed",
+                  }}
+                >
+                  {loading ? "Adding contact..." : "Submit"}
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
