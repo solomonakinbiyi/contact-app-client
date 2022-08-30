@@ -19,7 +19,6 @@ function Signin() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // alert(`${name}, ${email}, ${password}`)
     try {
       setLoading(true);
       const { data } = await axios.post(`/signin`, {
@@ -57,7 +56,7 @@ function Signin() {
           token: data.token,
         });
 
-        // savein local storage
+        // save in local storage
         window.localStorage.setItem("auth", JSON.stringify(data));
 
         navigate("/profile");

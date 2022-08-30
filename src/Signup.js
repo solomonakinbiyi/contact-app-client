@@ -18,7 +18,6 @@ function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // alert(`${name}, ${email}, ${password}`)
     try {
       setLoading(true);
       const { data } = await axios.post(`/signup`, {
