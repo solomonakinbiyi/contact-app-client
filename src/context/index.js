@@ -19,7 +19,7 @@ const UserProvider = ({ children }) => {
   const token = state && state.token ? state.token : "";
 
   axios.defaults.baseURL =
-    "https://contact-app-server-online.herokuapp.com/api";
+    "https://contact-app-server-2fs2.onrender.com/api";
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
   // Add a response interceptor
