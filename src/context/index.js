@@ -19,7 +19,7 @@ const UserProvider = ({ children }) => {
   const token = state && state.token ? state.token : "";
 
   axios.defaults.baseURL =
-    "https://contact-app-server-2fs2.onrender.com/api";
+    "https://contact-app-server-production-342e.up.railway.app/api";
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
   // Add a response interceptor
